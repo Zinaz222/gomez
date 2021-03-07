@@ -9,12 +9,12 @@ void print(std::vector <int> const &z){
 
 int main(){
 
-	std::vector<int> a = {};
+	std::vector<int> a = {2, 5};
 
-	std::vector<int> b = {};
+	std::vector<int> b = {1, 3};
 
-	//print(mergeVectors(a,b));
-	mergeVectors(a,b);
+	print(mergeVectors(a,b));
+	//mergeVectors(a,b);
 
 	return 0;
 
