@@ -14,6 +14,6 @@ struct Asteroid{
 	int m;
 	direction d;
 };
-int countHits(std::vector<Asteroid> a);
+int countHits(const std::vector<Asteroid> &a);
 
 #endif

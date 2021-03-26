@@ -10,7 +10,7 @@
 #include <iostream>
 #include "Asteroid.h"
 
-int countHits(std::vector<Asteroid> a){
+int countHits(const std::vector<Asteroid> &a){
 
 	int hits = 0;
 	std::stack<Asteroid> d;
@@ -21,10 +21,10 @@ int countHits(std::vector<Asteroid> a){
 		if(x.m < 0){
 			return -1;
 		}
-		if (a[i].d == 0){
-			while(!d.empty() && d.top().d == 1 && x.m > d.top().m)	d.pop();
+		if (a[i].d == left){
+			while(!d.empty() && d.top().d == right && x.m > d.top().m)	d.pop();
 
-		if(d.empty() || d.top().d == 0){
+		if(d.empty() || d.top().d == left){
 			if(x.m > 0){
 				d.push(x);
 			}
@@ -35,13 +35,13 @@ int countHits(std::vector<Asteroid> a){
 		}
 		}
 
-		else{
+		else if(x.m>0){
 			d.push(x);
 		}
 	}
 	hits = d.size();
 	while(!d.empty()){
-		if(d.top().d == 0){
+		if(d.top().d == left){
 			d.pop();
 			hits--;
 		}
